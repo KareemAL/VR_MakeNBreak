@@ -218,6 +218,19 @@ MonoBehaviour:
   _grabbable: {fileID: 2367376888091069320}
   _rigidbody: {fileID: 6011927247836440061}
   _scaleMassWithSize: 1
+--- !u!114 &2679697795065725535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4892712156338650254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edfcceea0dd0a0645a694055c677663d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPoint: {fileID: 0}
 --- !u!4 &5237043581968754228 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 294f3bac7cacaa9448fa59f076490543,
