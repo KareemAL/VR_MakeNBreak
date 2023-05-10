@@ -14,9 +14,13 @@ public class DetectionCell : MonoBehaviour
 
     private void Update()
     {
-        // Shoot a ray from the plane surface
+        // Set the offset distance in front of the plane's surface
+        float offset = 0.01f;
+        Vector3 rayOrigin = transform.position + transform.forward * offset;
+
+        // Shoot a ray from the updated starting position
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit))
+        if (Physics.Raycast(transform.position, transform.forward*1000, out hit))
         {
             Renderer renderer = hit.transform.GetComponent<Renderer>();
 
