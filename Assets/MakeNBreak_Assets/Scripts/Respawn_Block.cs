@@ -8,7 +8,7 @@ public class Respawn_Block : MonoBehaviour
     {
         if(transform.position.y < 0.4)
         {
-            transform.position = new Vector3(-0.038f, 0.873f, 0.297f);
+            transform.position = new Vector3(0.243f, 1f, -0.301f);
         }
     }
 }

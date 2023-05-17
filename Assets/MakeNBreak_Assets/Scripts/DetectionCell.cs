@@ -5,6 +5,7 @@ using UnityEngine;
 public class DetectionCell : MonoBehaviour
 {
     public Material targetMaterial;
+    public Material OwnMaterial;
     private bool detected = false;
 
     public bool IsDetected()
@@ -14,13 +15,13 @@ public class DetectionCell : MonoBehaviour
 
     private void Update()
     {
+        Vector3 OffsetVector = new Vector3(0, 0, -1);
         // Set the offset distance in front of the plane's surface
-        float offset = 0.01f;
-        Vector3 rayOrigin = transform.position + transform.forward * offset;
+        //Vector3 rayOrigin = transform.position + (transform.forward + OffsetVector);
 
         // Shoot a ray from the updated starting position
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward*1000, out hit))
+        if (Physics.Raycast(transform.position, transform.up*1000, out hit))
         {
             Renderer renderer = hit.transform.GetComponent<Renderer>();
 
@@ -29,12 +30,20 @@ public class DetectionCell : MonoBehaviour
             {
                 detected = true;
                 Debug.Log("RayCast: True");
+                OwnMaterial.color = Color.green;
             }
             else
             {
                 detected = false;
                 Debug.Log("RayCast: False");
+                OwnMaterial.color = Color.red;
             }
+        }
+        else
+        {
+            detected = false;
+            Debug.Log("RayCast: False");
+            OwnMaterial.color = Color.red;
         }
     }
 }
