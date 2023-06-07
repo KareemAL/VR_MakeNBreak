@@ -27,13 +27,13 @@ public class DetectionCell : MonoBehaviour
             if (Physics.Raycast(transform.position, transform.up*1000, out hit))
             {
                 detected = false;
-                Debug.Log("RayCast: False");
+                //Debug.Log("RayCast: False");
                 OwnMaterial.color = Color.red;
             }
             else
             {
                 detected = true;
-                Debug.Log("RayCast: True");
+                //Debug.Log("RayCast: True");
                 OwnMaterial.color = Color.green;
             }
         }
@@ -47,20 +47,20 @@ public class DetectionCell : MonoBehaviour
                 if (renderer != null && renderer.sharedMaterial == targetMaterial)
                 {
                     detected = true;
-                    Debug.Log("RayCast: True");
+                    //Debug.Log("RayCast: True");
                     OwnMaterial.color = Color.green;
                 }
                 else
                 {
                     detected = false;
-                    Debug.Log("RayCast: False");
+                    //Debug.Log("RayCast: False");
                     OwnMaterial.color = Color.red;
                 }
             }
             else
             {
                 detected = false;
-                Debug.Log("RayCast: False");
+                //Debug.Log("RayCast: False");
                 OwnMaterial.color = Color.red;
             }
         }
