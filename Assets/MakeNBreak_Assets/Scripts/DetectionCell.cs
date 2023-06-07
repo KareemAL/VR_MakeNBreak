@@ -6,6 +6,7 @@ public class DetectionCell : MonoBehaviour
 {
     public Material targetMaterial;
     public Material OwnMaterial;
+    public bool IsEmpty;
     private bool detected = false;
 
     public bool IsDetected()
@@ -21,16 +22,40 @@ public class DetectionCell : MonoBehaviour
 
         // Shoot a ray from the updated starting position
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.up*1000, out hit))
+        if (IsEmpty)        // set to true if nothing is hit
         {
-            Renderer renderer = hit.transform.GetComponent<Renderer>();
-
-            // Check if the hit object has a renderer and if the material matches the target material
-            if (renderer != null && renderer.sharedMaterial == targetMaterial)
+            if (Physics.Raycast(transform.position, transform.up*1000, out hit))
+            {
+                detected = false;
+                Debug.Log("RayCast: False");
+                OwnMaterial.color = Color.red;
+            }
+            else
             {
                 detected = true;
                 Debug.Log("RayCast: True");
                 OwnMaterial.color = Color.green;
+            }
+        }
+        else                // set to true if correct mat is hit
+        {
+            if (Physics.Raycast(transform.position, transform.up*1000, out hit))
+            {
+                Renderer renderer = hit.transform.GetComponent<Renderer>();
+
+                // Check if the hit object has a renderer and if the material matches the target material
+                if (renderer != null && renderer.sharedMaterial == targetMaterial)
+                {
+                    detected = true;
+                    Debug.Log("RayCast: True");
+                    OwnMaterial.color = Color.green;
+                }
+                else
+                {
+                    detected = false;
+                    Debug.Log("RayCast: False");
+                    OwnMaterial.color = Color.red;
+                }
             }
             else
             {
@@ -38,12 +63,6 @@ public class DetectionCell : MonoBehaviour
                 Debug.Log("RayCast: False");
                 OwnMaterial.color = Color.red;
             }
-        }
-        else
-        {
-            detected = false;
-            Debug.Log("RayCast: False");
-            OwnMaterial.color = Color.red;
         }
     }
 }
