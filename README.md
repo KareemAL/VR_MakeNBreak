@@ -3,7 +3,7 @@
 
 
 Project Name: VR MakeNBreak
-Group Members: Alina Baumann, Kareem Al-Khalily
+Group Members: Alina Brandstaetter, Kareem Al-Khalily
 
 Shot Description: derived from the real "MakeNBreak" board game, this is a game all about copying buliding plans made of differently shaped blocks. Here the concept of the board game has been transfered into VR using hand-tracking.
 
