@@ -9,4 +9,4 @@ Shot Description: derived from the real "MakeNBreak" board game, this is a game 
 
 
 
-IMPORTANT: Due to an error in our SDK we were unfortunately not able to build a working executable for our game. In order to watch/play the game we can only provide the shot videocapture in this .zip or you can access the github repository here
+IMPORTANT: Due to an error in our SDK we were unfortunately not able to build a working executable for our game yet. Please refer to our subimssion files.
