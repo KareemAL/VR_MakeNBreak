@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class WinCheck : MonoBehaviour
@@ -13,6 +14,10 @@ public class WinCheck : MonoBehaviour
 
     public Material OwnMaterial;
 
+    // variables for making scuffed Timer
+    private float delayTimer;
+    private bool isDelaying = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +28,28 @@ public class WinCheck : MonoBehaviour
     void Update()
     {
         if (IsWon) {
+
+            if(!isDelaying) {
             OwnMaterial.color = Color.green;
+
+            // Start the delay
+            delayTimer = 3f;
+            isDelaying = true;
+            }
+            else
+            {
+                // Countdown the delay
+                delayTimer -= Time.deltaTime;
+
+                if (delayTimer <= 0f)
+                {
+                    // Operation 2
+                    SceneManager.LoadScene("VRMakeNBreak");
+
+                    // Reset the delay state
+                    isDelaying = false;
+                }
+            }
         }
         else {
             OwnMaterial.color = Color.red;
